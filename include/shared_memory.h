@@ -3,6 +3,9 @@
 
 namespace FelixRepair
 {
-}
+class SharedMemoryManager
+{
+};
+} // namespace FelixRepair
 
 #endif // SHARED_MEMORY_H
