@@ -64,6 +64,18 @@ void SharedMemoryManager::fixCell(int x, int y)
     data[x * cols + y] = 'F';
 }
 
+bool SharedMemoryManager::hasBrokenCells()
+{
+    for (size_t i = 0; i < rows * cols; ++i)
+    {
+        if (data[i] == 'X')
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void SharedMemoryManager::printMatrix()
 {
     for (size_t i = 0; i < rows; ++i)

@@ -18,6 +18,7 @@ class SharedMemoryManager
     void initializeMatrix(size_t brokenCells);
     std::pair<int, int> getBrokenCell();
     void fixCell(int x, int y);
+    bool hasBrokenCells();
     void printMatrix();
 
   private:
