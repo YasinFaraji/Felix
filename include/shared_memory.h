@@ -2,7 +2,10 @@
 #define SHARED_MEMORY_H
 
 #include <cstddef>
+#include <fcntl.h>
 #include <sys/mman.h>
+#include <unistd.h>
+#include <utility>
 
 namespace FelixRepair
 {
@@ -13,6 +16,7 @@ class SharedMemoryManager
     ~SharedMemoryManager();
 
     void initializeMatrix(size_t brokenCells);
+    void printMatrix();
 
   private:
     size_t rows_;

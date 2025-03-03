@@ -45,4 +45,16 @@ void SharedMemoryManager::initializeMatrix(size_t brokenCells)
         data[dis(gen)] = 'X';
     }
 }
+
+void SharedMemoryManager::printMatrix()
+{
+    for (size_t i = 0; i < rows; ++i)
+    {
+        for (size_t j = 0; j < cols; ++j)
+        {
+            std::cout << data[i * cols + j] << ' ';
+        }
+        std::cout << '\n';
+    }
+}
 } // namespace FelixRepair
