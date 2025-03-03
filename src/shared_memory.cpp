@@ -10,6 +10,7 @@ SharedMemoryManager::SharedMemoryManager(size_t rows, size_t cols)
     , shmFd(-1)
     , data(nullptr)
 {
+    initializeSharedMemory();
 }
 
 SharedMemoryManager::~SharedMemoryManager()
