@@ -17,13 +17,14 @@ class SharedMemoryManager
 
     void initializeMatrix(size_t brokenCells);
     std::pair<int, int> getBrokenCell();
+    void fixCell(int x, int y);
     void printMatrix();
 
   private:
-    size_t rows_;
-    size_t cols_;
-    int shmFd_;
-    char* data_;
+    size_t rows;
+    size_t cols;
+    int shmFd;
+    char* data;
 
     void initializeSharedMemory();
 };

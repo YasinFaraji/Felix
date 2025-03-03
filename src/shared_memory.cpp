@@ -59,6 +59,11 @@ std::pair<int, int> SharedMemoryManager::getBrokenCell()
     return { -1, -1 };
 }
 
+void SharedMemoryManager::fixCell(int x, int y)
+{
+    data[x * cols + y] = 'F';
+}
+
 void SharedMemoryManager::printMatrix()
 {
     for (size_t i = 0; i < rows; ++i)
