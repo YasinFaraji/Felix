@@ -4,4 +4,11 @@
 
 namespace FelixRepair
 {
+SharedMemoryManager::SharedMemoryManager(size_t rows, size_t cols)
+    : rows(rows)
+    , cols(cols)
+    , shmFd(-1)
+    , data(nullptr)
+{
 }
+} // namespace FelixRepair
