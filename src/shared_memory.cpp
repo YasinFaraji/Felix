@@ -46,6 +46,19 @@ void SharedMemoryManager::initializeMatrix(size_t brokenCells)
     }
 }
 
+std::pair<int, int> SharedMemoryManager::getBrokenCell()
+{
+    for (size_t i = 0; i < rows * cols; ++i)
+    {
+        if (data[i] == 'X')
+        {
+            data[i] = '0';
+            return { i / cols, i % cols };
+        }
+    }
+    return { -1, -1 };
+}
+
 void SharedMemoryManager::printMatrix()
 {
     for (size_t i = 0; i < rows; ++i)
