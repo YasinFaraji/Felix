@@ -2,6 +2,7 @@
 #define SHARED_MEMORY_H
 
 #include <cstddef>
+#include <sys/mman.h>
 
 namespace FelixRepair
 {
@@ -16,6 +17,8 @@ class SharedMemoryManager
     size_t cols_;
     int shmFd_;
     char* data_;
+
+    void initializeSharedMemory();
 };
 } // namespace FelixRepair
 
