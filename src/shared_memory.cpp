@@ -1,6 +1,8 @@
 #include "shared_memory.hpp"
 
+#include <cstring>
 #include <iostream>
+#include <random>
 
 namespace FelixRepair
 {
@@ -31,5 +33,16 @@ void SharedMemoryManager::initializeSharedMemory()
     ftruncate(shmFd, rows * cols);
     data = static_cast<char*>(mmap(0, rows * cols, PROT_READ | PROT_WRITE, MAP_SHARED, shmFd, 0));
     memset(data, '0', rows * cols);
+}
+
+void SharedMemoryManager::initializeMatrix(size_t brokenCells)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, rows * cols - 1);
+    for (size_t i = 0; i < brokenCells; ++i)
+    {
+        data[dis(gen)] = 'X';
+    }
 }
 } // namespace FelixRepair
