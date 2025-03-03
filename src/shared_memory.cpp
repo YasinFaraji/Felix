@@ -11,4 +11,8 @@ SharedMemoryManager::SharedMemoryManager(size_t rows, size_t cols)
     , data(nullptr)
 {
 }
+
+SharedMemoryManager::~SharedMemoryManager()
+{
+}
 } // namespace FelixRepair
