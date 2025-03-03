@@ -7,6 +7,10 @@ namespace FelixRepair
 {
 class SharedMemoryManager
 {
+  public:
+    SharedMemoryManager(size_t rows, size_t cols);
+    ~SharedMemoryManager();
+
   private:
     size_t rows_;
     size_t cols_;
