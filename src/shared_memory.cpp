@@ -15,6 +15,14 @@ SharedMemoryManager::SharedMemoryManager(size_t rows, size_t cols)
 
 SharedMemoryManager::~SharedMemoryManager()
 {
+    if (data)
+    {
+        munmap(data, rows * cols);
+    }
+    if (shmFd != -1)
+    {
+        shm_unlink("/felix_shm");
+    }
 }
 
 void SharedMemoryManager::initializeSharedMemory()
