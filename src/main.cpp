@@ -1,5 +1,9 @@
 #include <cstdlib>
 #include <iostream>
+#include <vector>
+
+#include "felix.h"
+#include "shared_memory.h"
 
 int main(int argc, char* argv[])
 {
@@ -11,6 +15,27 @@ int main(int argc, char* argv[])
         numFelixes = std::stoi(argv[3]);
         brokenCells = std::stoi(argv[4]);
     }
+
+    FelixRepair::SharedMemoryManager shm(rows, cols);
+    shm.initializeMatrix(brokenCells);
+
+    std::vector<FelixRepair::Felix> felixes;
+    for (size_t i = 0; i < numFelixes; ++i)
+    {
+        felixes.emplace_back(i, shm);
+    }
+
+    for (auto& felix : felixes)
+    {
+        felix.start();
+    }
+
+    for (auto& felix : felixes)
+    {
+        felix.wait();
+    }
+
+    shm.printMatrix();
 
     return 0;
 }
