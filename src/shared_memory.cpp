@@ -1,4 +1,4 @@
-#include "shared_memory.hpp"
+#include "shared_memory.h"
 
 #include <cstring>
 #include <iostream>
