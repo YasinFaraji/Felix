@@ -17,9 +17,9 @@ class Felix
     void wait();
 
   private:
-    int id;
-    SharedMemoryManager& shm;
-    std::unique_ptr<std::thread> process;
+    int id_;
+    SharedMemoryManager& shm_;
+    std::unique_ptr<std::thread> process_;
 
     void repair();
 };

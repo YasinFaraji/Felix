@@ -6,36 +6,36 @@
 namespace FelixRepair
 {
 Felix::Felix(int id, SharedMemoryManager& shm)
-    : id(id)
-    , shm(shm)
-    , process(nullptr)
+    : id_(id)
+    , shm_(shm)
+    , process_(nullptr)
 {
 }
 
 void Felix::start()
 {
-    process = std::make_unique<std::thread>(&Felix::repair, this);
+    process_ = std::make_unique<std::thread>(&Felix::repair, this);
 }
 
 void Felix::repair()
 {
-    while (shm.hasBrokenCells())
+    while (shm_.hasBrokenCells())
     {
-        auto [x, y] = shm.getBrokenCell();
+        auto [x, y] = shm_.getBrokenCell();
         if (x == -1 && y == -1)
         {
             break;
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
-        shm.fixCell(x, y);
+        shm_.fixCell(x, y);
     }
 }
 
 void Felix::wait()
 {
-    if (process && process->joinable())
+    if (process_ && process_->joinable())
     {
-        process->join();
+        process_->join();
     }
 }
 } // namespace FelixRepair
