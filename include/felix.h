@@ -13,6 +13,8 @@ class Felix
   public:
     Felix(int id, SharedMemoryManager& shm);
 
+    void start();
+
   private:
     int id;
     SharedMemoryManager& shm;

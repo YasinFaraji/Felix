@@ -12,6 +12,11 @@ Felix::Felix(int id, SharedMemoryManager& shm)
 {
 }
 
+void Felix::start()
+{
+    process = std::make_unique<std::thread>(&Felix::repair, this);
+}
+
 void Felix::repair()
 {
     while (shm.hasBrokenCells())
