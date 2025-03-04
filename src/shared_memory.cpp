@@ -52,7 +52,7 @@ std::pair<int, int> SharedMemoryManager::getBrokenCell()
     {
         if (data_[i] == 'X')
         {
-            data_[i] = '0';
+            data_[i] = 'I';
             return { i / cols_, i % cols_ };
         }
     }
