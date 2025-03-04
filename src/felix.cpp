@@ -30,4 +30,12 @@ void Felix::repair()
         shm.fixCell(x, y);
     }
 }
+
+void Felix::wait()
+{
+    if (process && process->joinable())
+    {
+        process->join();
+    }
+}
 } // namespace FelixRepair

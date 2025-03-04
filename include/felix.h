@@ -14,6 +14,7 @@ class Felix
     Felix(int id, SharedMemoryManager& shm);
 
     void start();
+    void wait();
 
   private:
     int id;
