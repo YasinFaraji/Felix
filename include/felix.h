@@ -10,6 +10,9 @@ namespace FelixRepair
 {
 class Felix
 {
+  public:
+    Felix(int id, SharedMemoryManager& shm);
+
   private:
     int id;
     SharedMemoryManager& shm;
