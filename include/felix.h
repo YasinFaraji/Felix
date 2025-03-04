@@ -3,6 +3,9 @@
 
 namespace FelixRepair
 {
-}
+class Felix
+{
+};
+} // namespace FelixRepair
 
 #endif // FELIX_H
