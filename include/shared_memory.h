@@ -22,10 +22,10 @@ class SharedMemoryManager
     void printMatrix();
 
   private:
-    size_t rows;
-    size_t cols;
-    int shmFd;
-    char* data;
+    size_t rows_;
+    size_t cols_;
+    int shmFd_;
+    char* data_;
 
     void initializeSharedMemory();
 };
