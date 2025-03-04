@@ -17,6 +17,8 @@ class Felix
     int id;
     SharedMemoryManager& shm;
     std::unique_ptr<std::thread> process;
+
+    void repair();
 };
 } // namespace FelixRepair
 
